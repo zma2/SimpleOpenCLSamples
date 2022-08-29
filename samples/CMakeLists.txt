@@ -49,6 +49,7 @@ function(add_opencl_sample)
     endif()
     if (WIN32)
         target_compile_definitions(${OPENCL_SAMPLE_TARGET} PRIVATE _CRT_SECURE_NO_WARNINGS)
+        target_compile_definitions(${OPENCL_SAMPLE_TARGET} PRIVATE NOMINMAX)
     endif()
 
     set_target_properties(${OPENCL_SAMPLE_TARGET} PROPERTIES FOLDER "Samples/${OPENCL_SAMPLE_CATEGORY}/${OPENCL_SAMPLE_NUMBER}_${OPENCL_SAMPLE_TARGET}")
@@ -88,6 +89,8 @@ add_subdirectory( 05_spirvkernelfromfile )
 add_subdirectory( 06_ndrangekernelfromfile )
 
 add_subdirectory( 10_queueexperiments )
+
+add_subdirectory( 99_aluperf )
 
 set(BUILD_EXTENSION_SAMPLES TRUE)
 if(NOT TARGET OpenCLExt)
