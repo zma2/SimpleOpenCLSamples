@@ -91,3 +91,16 @@ add_subdirectory( 06_ndrangekernelfromfile )
 add_subdirectory( 10_queueexperiments )
 
 add_subdirectory( 11_apitimes )
+
+set(BUILD_EXTENSION_SAMPLES TRUE)
+if(NOT TARGET OpenCLExt)
+    message(STATUS "Skipping Extension Samples - OpenCL Extension Loader is not found.")
+    set(BUILD_EXTENSION_SAMPLES FALSE)
+endif()
+
+if(BUILD_EXTENSION_SAMPLES)
+    add_subdirectory( 12_commandbuffers )
+    add_subdirectory( 12_commandbufferspp )
+    add_subdirectory( 13_mutablecommandbuffers )
+    add_subdirectory( 14_ooqcommandbuffers )
+endif()
